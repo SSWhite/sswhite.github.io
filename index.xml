@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSWhite-Blog</title>
+    <link>https://sswhite.github.io/</link>
+    <description>Recent content on SSWhite-Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 25 Feb 2023 21:09:11 +0800</lastBuildDate><atom:link href="https://sswhite.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://sswhite.github.io/post/test/</link>
+      <pubDate>Sat, 25 Feb 2023 21:09:11 +0800</pubDate>
+      
+      <guid>https://sswhite.github.io/post/test/</guid>
+      <description>测试 测试 这是一个测试文档！</description>
+    </item>
+    
+  </channel>
+</rss>
