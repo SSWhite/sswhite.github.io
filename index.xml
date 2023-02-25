@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSWhite-Blog</title>
-    <link>http://www.aililia.top/</link>
+    <link>https://www.aililia.top/</link>
     <description>Recent content on SSWhite-Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Feb 2023 21:09:11 +0800</lastBuildDate><atom:link href="http://www.aililia.top/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Feb 2023 21:09:11 +0800</lastBuildDate><atom:link href="https://www.aililia.top/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>http://www.aililia.top/post/test/</link>
+      <link>https://www.aililia.top/post/test/</link>
       <pubDate>Sat, 25 Feb 2023 21:09:11 +0800</pubDate>
       
-      <guid>http://www.aililia.top/post/test/</guid>
+      <guid>https://www.aililia.top/post/test/</guid>
       <description>测试 测试 这是一个测试文档！</description>
     </item>
     
