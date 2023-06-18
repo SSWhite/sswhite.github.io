@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>SSWhite Blog</title>
-        <link>https://www.aililia.top/</link>
+        <link>https://sswhite.github.io/</link>
         <description>Recent content on SSWhite Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aililia.top/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://sswhite.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>归档</title>
-        <link>https://www.aililia.top/archives/</link>
+        <link>https://sswhite.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://www.aililia.top/archives/</guid>
+        <guid>https://sswhite.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://www.aililia.top/%E5%85%B3%E4%BA%8E/</link>
+        <link>https://sswhite.github.io/%E5%85%B3%E4%BA%8E/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://www.aililia.top/%E5%85%B3%E4%BA%8E/</guid>
+        <guid>https://sswhite.github.io/%E5%85%B3%E4%BA%8E/</guid>
         <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>链接</title>
-        <link>https://www.aililia.top/links/</link>
+        <link>https://sswhite.github.io/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://www.aililia.top/links/</guid>
+        <guid>https://sswhite.github.io/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -60,10 +60,10 @@
         </item>
         <item>
         <title>搜索</title>
-        <link>https://www.aililia.top/search/</link>
+        <link>https://sswhite.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://www.aililia.top/search/</guid>
+        <guid>https://sswhite.github.io/search/</guid>
         <description></description>
         </item>
         

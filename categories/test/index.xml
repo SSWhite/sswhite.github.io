@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Test on SSWhite Blog</title>
-        <link>https://www.aililia.top/categories/test/</link>
+        <link>https://sswhite.github.io/categories/test/</link>
         <description>Recent content in Test on SSWhite Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language><atom:link href="https://www.aililia.top/categories/test/index.xml" rel="self" type="application/rss+xml" />
+        <language>zh-cn</language><atom:link href="https://sswhite.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
