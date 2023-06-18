@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on SSWhite Blog</title>
-        <link>https://aililia.top/categories/</link>
+        <link>https://www.aililia.top/categories/</link>
         <description>Recent content in Categories on SSWhite Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language><atom:link href="https://aililia.top/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>zh-cn</language><atom:link href="https://www.aililia.top/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Test</title>
-        <link>https://aililia.top/categories/test/</link>
+        <link>https://www.aililia.top/categories/test/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://aililia.top/categories/test/</guid>
-        <description>&lt;img src="https://aililia.top/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        <guid>https://www.aililia.top/categories/test/</guid>
+        <description>&lt;img src="https://www.aililia.top/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         
     </channel>
