@@ -16,7 +16,8 @@
 &lt;p&gt;Pandora是一个开源的ChatGPT镜像项目，是以Access Token的方式，通过FakeGPT（国内的镜像网站中转）登陆ChatGPT。
 通过镜像网站中转的可以实现无需VPN访问ChatGPT，并且可以很好的应对人机验证、IP地址审查、访问速度拉胯等问题。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;gitlab地址：https://github.com/pengzhile/pandora/tree/master&lt;/p&gt;
+&lt;p&gt;gitlab地址： &lt;a class=&#34;link&#34; href=&#34;https://github.com/pengzhile/pandora&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/pengzhile/pandora&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&#34;通过docker部署pandora&#34;&gt;通过docker部署Pandora&lt;/h4&gt;
 &lt;p&gt;安装docker（不同系统安装方式不同，请根据实际情况进行安装）&lt;/p&gt;
@@ -98,8 +99,8 @@
 &lt;p&gt;通过Pandora的方式，访问速度大大提高，并且不再受到VPN的限制，这真是一大福音。
 若有需要，甚至可以在公网上的服务器部署，这样便可以在多种客户端访问ChatGPT。然而，我现在还未有此打算，有兴趣的朋友，或许可以自行探索。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;若有兴趣深入了解，可参阅此&lt;a class=&#34;link&#34; href=&#34;https://github.com/pengzhile/pandora/tree/master&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;gitlab地址&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;若有兴趣深入了解，可以&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/weixin_41104307/article/details/131109718&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;点这里&lt;/a&gt;看看。&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         </item>
