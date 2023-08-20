@@ -5,13 +5,14 @@
         <link>https://aililia.top/categories/</link>
         <description>Recent content in Categories on SSWhite Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language><atom:link href="https://aililia.top/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Test</title>
-        <link>https://aililia.top/categories/test/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        <language>zh-cn</language>
+        <lastBuildDate>Thu, 10 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://aililia.top/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI工具</title>
+        <link>https://aililia.top/categories/ai%E5%B7%A5%E5%85%B7/</link>
+        <pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://aililia.top/categories/test/</guid>
-        <description>&lt;img src="https://aililia.top/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        <guid>https://aililia.top/categories/ai%E5%B7%A5%E5%85%B7/</guid>
+        <description>&lt;img src="https://aililia.top/categories/ai%E5%B7%A5%E5%85%B7/ai%E5%B7%A5%E5%85%B7.jpeg" alt="Featured image of post AI工具" /&gt;</description>
         </item>
         
     </channel>
