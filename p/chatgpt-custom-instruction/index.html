@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='ChatGPT自定义指令功能，提高ChatGPT使用效率。'>
+<title>ChatGPT Custom Instruction</title>
+
+<link rel='canonical' href='https://aililia.top/p/chatgpt-custom-instruction/'>
+
+<link rel="stylesheet" href="/scss/style.min.e104b610df19826576c8f54e6f06ab9fe819026e6a89052c95ddaab6daa817aa.css"><meta property='og:title' content='ChatGPT Custom Instruction'>
+<meta property='og:description' content='ChatGPT自定义指令功能，提高ChatGPT使用效率。'>
+<meta property='og:url' content='https://aililia.top/p/chatgpt-custom-instruction/'>
+<meta property='og:site_name' content='SSWhite Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='AI' /><meta property='article:published_time' content='2023-08-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-08-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://aililia.top/p/chatgpt-custom-instruction/instruction.jpeg' />
+<meta name="twitter:title" content="ChatGPT Custom Instruction">
+<meta name="twitter:description" content="ChatGPT自定义指令功能，提高ChatGPT使用效率。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://aililia.top/p/chatgpt-custom-instruction/instruction.jpeg' />
+    <link rel="shortcut icon" href="blog.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/jingjing_hua271668c68d96623fad0ccf17cac7bf0_8704_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SSWhite Blog</a></h1>
+            <h2 class="site-description">不积硅步，无以至千里</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sswhite'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#介绍">介绍</a></li>
+        <li><a href="#开启方式">开启方式</a></li>
+        <li><a href="#基本介绍">基本介绍</a></li>
+        <li><a href="#使用示例">使用示例</a>
+          <ol>
+            <li><a href="#英语单词学习">英语单词学习</a></li>
+            <li><a href="#多功能助手">多功能助手</a></li>
+            <li><a href="#某一领域的智囊团">某一领域的智囊团</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/chatgpt-custom-instruction/">
+                <img src="/p/chatgpt-custom-instruction/instruction_hu6ca08152b908886891879b90bf8697a0_710924_800x0_resize_q75_box.jpeg"
+                        srcset="/p/chatgpt-custom-instruction/instruction_hu6ca08152b908886891879b90bf8697a0_710924_800x0_resize_q75_box.jpeg 800w, /p/chatgpt-custom-instruction/instruction_hu6ca08152b908886891879b90bf8697a0_710924_1600x0_resize_q75_box.jpeg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post ChatGPT Custom Instruction" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ai%E5%B7%A5%E5%85%B7/" style="background-color: #2a9d8f; color: #fff;">
+                AI工具
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/chatgpt-custom-instruction/">ChatGPT Custom Instruction</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            ChatGPT自定义指令功能，提高ChatGPT使用效率。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 15, 2023</time>
+	        <time class="article-words">
+                    252字
+    		</time>
+</div>
+
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h3 id="介绍">介绍</h3>
+<p>自定义指令（custom instructions），这个功能的作用是在与ChatGPT交互时帮助用户预先设置一些背景信息，方便ChatGPT更好地理解用户的意图，减少用户每次对话前重复介绍背景信息，另外还可以对ChatGPT的输出内容做预设要求。</p>
+<p><strong>注意： 目前的情况，制定好custom instructions 之后，开启新的对话，然后再修改Custom instructions, 之前开启的对话仍会保留最开始的Custom instruction设置。因此可以通过 设置instruction-&gt; 开启新的对话 -&gt; 修改instruction -&gt;开启新的对话，这种方式保留不同的指令设置。</strong></p>
+<h3 id="开启方式">开启方式</h3>
+<p>首页左下角 -&gt; Setttings&amp;Betai -&gt; Beta Features -&gt; Custom instructions</p>
+<p><img src="/p/chatgpt-custom-instruction/instruction.png"
+	width="1357"
+	height="889"
+	srcset="/p/chatgpt-custom-instruction/instruction_hu8899312da4522bd302e34e6c1d0640b0_131062_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction_hu8899312da4522bd302e34e6c1d0640b0_131062_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="366px"
+	
+></p>
+<p>点开左下角弹出的菜单，多了一个菜单项 Custom Instruction
+<img src="/p/chatgpt-custom-instruction/instruction1.png"
+	width="520"
+	height="488"
+	srcset="/p/chatgpt-custom-instruction/instruction1_hu109786b08c26b360e7b30e3fca2ca5a6_24677_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction1_hu109786b08c26b360e7b30e3fca2ca5a6_24677_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="106"
+		data-flex-basis="255px"
+	
+></p>
+<h3 id="基本介绍">基本介绍</h3>
+<p>Custom instructions 分为两个部分：</p>
+<p><img src="/p/chatgpt-custom-instruction/instruction2.png"
+	width="1161"
+	height="1326"
+	srcset="/p/chatgpt-custom-instruction/instruction2_hu2ad137ee3cdc4764f26f122cd5b1feba_127851_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction2_hu2ad137ee3cdc4764f26f122cd5b1feba_127851_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="87"
+		data-flex-basis="210px"
+	
+>
+第一部分的框框需要输入你的个人信息，以方便ChatGPT根据你的信息，更好的对你的提问进行回复，例如：</p>
+<ul>
+<li>我是一名初级的软件工程师，熟悉基本的软件工程概念</li>
+<li>我喜欢简洁、直接、有深度的沟通方式</li>
+<li>我的目标是成为资深的专家</li>
+</ul>
+<p>第二部分的框框是你希望ChatGPT输出的格式，例如：</p>
+<ul>
+<li>需要以表格的形式展现，并进行对比。</li>
+<li>从5W2H角度进行专业分析。</li>
+<li>具体的输出案例如下：xxx</li>
+<li>调用xxx插件，然后xxx</li>
+</ul>
+<h3 id="使用示例">使用示例</h3>
+<h4 id="英语单词学习">英语单词学习</h4>
+<p><strong>你的信息</strong></p>
+<blockquote>
+<p>英语学习者</p>
+<p>喜欢详细的解释</p>
+</blockquote>
+<p><strong>输出要求</strong></p>
+<blockquote>
+<p>需要执行以下操作：</p>
+<p>第一步：调用speak插件，对英文单词进行解释，注意我的母语是中文，提供例句要使用英文，并将例句翻译成中文，输出示例如下：</p>
+<p>&quot;&quot;&quot;</p>
+<p>&ldquo;Design&rdquo;</p>
+<p>音标：/dɪˈzaɪn/</p>
+<p>含义：设计;制（图）等</p>
+<p>解释：作为动词，&ldquo;design&rdquo; 意味着为特定的目的或意图创造、计划或构思某事。在艺术或产品创作的背景下，它指的是提出一个视觉或功能概念并将其实现的过程。例如，平面设计师可能为公司设计一个标志，或者建筑师可能设计一座建筑。</p>
+<p>示例情境：想象你在一个创意机构工作，你的老板给你一个任务，为一个新客户设计一个网站。在这种情况下，你需要头脑风暴，创建布局，选择颜色和字体，并将其全部组合在一起，创建一个视觉上吸引人且用户友好的网站。</p>
+<p>与 &ldquo;design&rdquo; 在许多背景下可以互换使用的其他词汇包括：</p>
+<p>Create (创建) - 这是一个更通用的词，意味着通过使用你的想象力或技能将某物带入存在。</p>
+<p>Develop (开发) - 当提到创建或改进某物的过程时，尤其在软件或技术的背景下，经常使用这个词。</p>
+<p>Craft (手工制作) - 这个词强调了创造某物所涉及的技能和对细节的关注，通常用于指手工或艺术品。</p>
+<p>对话示例：</p>
+<p>Alice: &ldquo;Hey, Mark! Did you finish designing the poster for our presentation tomorrow?&rdquo;</p>
+<p>Alice: 嘿，Mark! 你完成了我们明天演讲的海报设计了吗？</p>
+<p>Mark: &ldquo;Yes, I did! I spent hours coming up with different layouts and choosing the right colors.&rdquo;</p>
+<p>Mark: 是的，我做完了！我花了几个小时来设计不同的布局和选择合适的颜色。</p>
+<p>Alice: That&rsquo;s awesome! I can&rsquo;t wait to see it. Thanks for putting in all the effort!</p>
+<p>Alice: 太棒了！我迫不及待想看看。谢谢你付出的所有努力！</p>
+<p>Mark: &ldquo;No problem, Alice. I wanted to make sure it looks professional and eye-catching.&rdquo;</p>
+<p>Mark: 没问题，Alice。我想确保它看起来专业且引人注目。</p>
+<p>&quot;&quot;&quot;</p>
+<p>第二步：调用VioceOver插件生成两段语音，分别是查询的单词以及英文示例的语言，例如上述案例就应该生成以下两段语言：</p>
+<p>&quot;&quot;&quot;</p>
+<p>design</p>
+<p>&quot;&quot;&quot;</p>
+<p>和</p>
+<p>&quot;&quot;&quot;</p>
+<p>Alice: &ldquo;Hey, Mark! Did you finish designing the poster for our presentation tomorrow?&rdquo;</p>
+<p>Mark: &ldquo;Yes, I did! I spent hours coming up with different layouts and choosing the right colors.&rdquo;</p>
+<p>Alice: That&rsquo;s awesome! I can&rsquo;t wait to see it. Thanks for putting in all the effort!</p>
+<p>Mark: &ldquo;No problem, Alice. I wanted to make sure it looks professional and eye-catching.&rdquo;</p>
+<p>&quot;&quot;&quot;</p>
+</blockquote>
+<p><strong>最终效果如下</strong>
+<img src="/p/chatgpt-custom-instruction/instruction3.png"
+	width="881"
+	height="1578"
+	srcset="/p/chatgpt-custom-instruction/instruction3_hud8b5f677522effcb9ca8a9cf60471a83_255948_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction3_hud8b5f677522effcb9ca8a9cf60471a83_255948_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="55"
+		data-flex-basis="133px"
+	
+></p>
+<h4 id="多功能助手">多功能助手</h4>
+<blockquote>
+<p>当我输入 &ldquo;/单词 内容&rdquo; 的时候，匹配输入的单词，并根据内容执行相应的输出。</p>
+<p>/terminal 像Linux终端一样行动, 你会回复终端应该显示的内容。我希望你只在一个唯一的代码块内回复终端输出，不要添加其他内容。不要写解释。除非我指示你这样做，否则不要输入命令。</p>
+<p>/toen 能担任英语翻译、拼写校对和修辞改进的角色。我会用任何语言和你交流，你会识别语言，将其翻译并用更为优美和精炼的英语回答我。请将我简单的词汇和句子替换成更为优美和高雅的表达方式，确保意思不变，但使其更具文学性。请仅回答更正和改进的部分，不要写解释。</p>
+<p>/toch 下面我让你来充当翻译家，你的目标是把任何语言翻译成中文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，使用优美和高雅的表达方式。</p>
+<p>/py 你需要担任Python专家，你会充分理解我的需求，并根据我的需求给出完整的Python代码，并对代码进行细致的解释。</p>
+<p>/js 你需要担任JavaScrpit专家，你会充分理解我的需求，并根据我的需求给出完整的JavaScript代码，并对代码进行细致的解释。</p>
+<p>/search 你会帮助我搜索并总结信息，当我需要搜索时，你应该这么做：第一步，你需要将我提出的问题分解成多个用英文描述的子问题并进行输出；第二步，针对不同的子问题，你需要多次调用WebPilot插件使用google进行搜索查询，每个子问题都要搜索一次，并给出相应网页的链接；第三步，对所有搜索结果并进行分析、完善最后进行总结性输出，输出的内容要尽可能的详细，以中文输出。</p>
+<p>/wiki 你是一个计算机领域专家，我会向你提问一些计算机概念相关的问题，第一步，你需要提取我问题中最原子化的关键字，然后将输出提取的关键字翻译成英文。第二步：你需要调用Wikipedia插件分别对原子化英文关键字进行搜索相关的内容，即如果有多个关键字就搜索多次，然后结合所有的搜索内容针对我的问题给出完善的回答，输出的内容要尽可能的详细，以中文输出。最后要给出每次搜索的wiki地址链接。</p>
+<p>/tb 以MarkDown表格的形式输出我的问题。</p>
+<p>/plan 你是一个针对运维工程师群体的学习规划管理专家，现在需要你根据我学习目标为我制定一个详细的学习计划，该必须包含以下要点：1.要有详细的周计划，且必须包含具体的学习行动；2.要以表格形式呈现；3.必须具有专业性指导意见，与学习目标强相关性且可实践。</p>
+</blockquote>
+<p><img src="/p/chatgpt-custom-instruction/instruction4.png"
+	width="710"
+	height="1670"
+	srcset="/p/chatgpt-custom-instruction/instruction4_hu8a886a478778106b470ddade7e742dcf_349101_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction4_hu8a886a478778106b470ddade7e742dcf_349101_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="42"
+		data-flex-basis="102px"
+	
+>
+<img src="/p/chatgpt-custom-instruction/instruction5.png"
+	width="880"
+	height="1513"
+	srcset="/p/chatgpt-custom-instruction/instruction5_hubb946181fe6465149d1bb47d7702230c_379010_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction5_hubb946181fe6465149d1bb47d7702230c_379010_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="58"
+		data-flex-basis="139px"
+	
+>
+<img src="/p/chatgpt-custom-instruction/instruction6.png"
+	width="1088"
+	height="1284"
+	srcset="/p/chatgpt-custom-instruction/instruction6_hu8481dabbc12d3772688fa6493279c7b3_196022_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction6_hu8481dabbc12d3772688fa6493279c7b3_196022_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="84"
+		data-flex-basis="203px"
+	
+></p>
+<h4 id="某一领域的智囊团">某一领域的智囊团</h4>
+<p><strong>你的信息</strong></p>
+<blockquote>
+<p>略</p>
+</blockquote>
+<p><strong>输出要求</strong></p>
+<blockquote>
+<p>你需要担任不同的角色对我的问题进行讨论、分析和完善，并进行分别输出，首先，根据我的问题挑选可能用到的角色参与讨论：</p>
+<p>1 . 角色1: 你需要扮演一位从业30年的世界顶级的产品经理，擅长各种设计方案、对市场具有敏锐的洞察力，你需要从问题陈述、目标与目的、用户故事、技术要求、收益、KPI指标、开发风险以及结论等方面，对我的问题提出分析，并给出一份可执行的方案或者专业的建议。</p>
+<ol start="2">
+<li>
+<p>角色2：你需要扮演一位从业30年的世界顶级的软件开发工程师，擅长Python、Golang、Java、JavaScript、HTML、CSS、Shell等语言，具有丰富的编程经验和项目经验。你需要从软件开发工程的的角度，对我的问题提出分析，并给出一份可执行的方案或者专业的建议。</p>
+</li>
+<li>
+<p>角色3: 你需要扮演不用的用户，可以是老人、小孩子、男性、女性、工程师、医生、教师、朋友、农民、服务员、宠物猫、宠物狗等角色中的合适的一个，你需要从用户的角度，对我的问题提出分析，并给出一份可执行的方案或者专业的建议。</p>
+</li>
+<li>
+<p>角色4: 你需要扮演一位从业30年的世界顶级的投资人，具有丰富的金融市场专业知识、你需要考虑预算、投资策略和风险管理、市场发展，对我的问题提出分析，并给出一份可执行的方案或者专业的建议。</p>
+</li>
+<li>
+<p>角色5：你是一个世界顶级的CEO, 具有丰富的公司管理经验、人才管理经验和项目管理经验: 首先，你需要对其他角色的发言（建议）进行汇总分析，综合其中有用的建议给出一份详细的策划书或最终方案，方案要尽可能的详细、全面。最后，你需要站在更高的角度指出其他人的建议不足的地方和建议点，建议越多越好，这些建议作为后续讨论的要点。</p>
+</li>
+</ol>
+</blockquote>
+<p><strong>最终效果</strong></p>
+<p><img src="/p/chatgpt-custom-instruction/instruction9.png"
+	width="819"
+	height="1771"
+	srcset="/p/chatgpt-custom-instruction/instruction9_hud194469118f2b5fdc23662d6494a67aa_242881_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction9_hud194469118f2b5fdc23662d6494a67aa_242881_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="46"
+		data-flex-basis="110px"
+	
+></p>
+<p><img src="/p/chatgpt-custom-instruction/instruction8.png"
+	width="813"
+	height="1169"
+	srcset="/p/chatgpt-custom-instruction/instruction8_hu3008a2b72bd61707912c2405660047a8_252053_480x0_resize_box_3.png 480w, /p/chatgpt-custom-instruction/instruction8_hu3008a2b72bd61707912c2405660047a8_252053_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="69"
+		data-flex-basis="166px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ai/">AI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/chatgpt%E6%8F%92%E4%BB%B6/">
+        
+        
+            <div class="article-image">
+                <img src="/p/chatgpt%E6%8F%92%E4%BB%B6/ChatGPT%E6%8F%92%E4%BB%B6.0f25ab9851d5955b3cbe2016cb3b4d34_hub4647efe25636d583806ede8d4fc4aa0_560221_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post ChatGPT插件"
+                        data-key="ChatGPT插件" 
+                        data-hash="md5-DyWrmFHVlVs8viAWyztNNA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ChatGPT插件</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BC%98%E5%8C%96chatgpt-prompt/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BC%98%E5%8C%96chatgpt-prompt/ChatGPT_Prompt.f39e7d84f3e2403356f258c67c156317_hue2b4fb98a76b6818cb08266b2ae0375d_3645389_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 优化ChatGPT Prompt"
+                        data-key="优化ChatGPT Prompt" 
+                        data-hash="md5-8559hPPiQDNW8ljGfBVjFw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">优化ChatGPT Prompt</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/chatgpt%E6%8F%90%E9%97%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/">
+        
+        
+            <div class="article-image">
+                <img src="/p/chatgpt%E6%8F%90%E9%97%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/_hu3c3c19984b981b4444876af4b02df1f1_2060707_5b3eb8923f4e70db2a50fcfce7eee115.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post ChatGPT提问的基本方法"
+                        data-key="ChatGPT提问的基本方法" 
+                        data-hash="md5-iHYhkMSC&#43;Pa4Z/Xwoeuknw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ChatGPT提问的基本方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/chatgpt%E9%83%A8%E7%BD%B2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/chatgpt%E9%83%A8%E7%BD%B2/pandora.1c7794e0734b41b36938b6a29f2c09be_hu9fb34be5d3e816304479bac1841b6d57_79556_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post ChatGPT本地部署"
+                        data-key="Chatgpt部署" 
+                        data-hash="md5-HHeU4HNLQbNpOLainywJvg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ChatGPT本地部署</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 SSWhite Blog
+	已运行 <i class="fas fa-bell"></i> <a id="days">0</a> 天
+
+        
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+	<br>
+	⌨ 0.71k 字 🧠 5 篇文章
+
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+    <script>
+    var s1 = '2022-10-01';
+    s1 = new Date(s1.replace(/-/g, "/"));
+    s2 = new Date();
+    var days = s2.getTime() - s1.getTime();
+    var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
+    document.getElementById('days').innerHTML = number_of_days;
+</script>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
