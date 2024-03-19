@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Kafka学习 on SSWhite Blog</title>
-        <link>https://aililia.top/categories/kafka%E5%AD%A6%E4%B9%A0/</link>
+        <link>http://localhost:1313/categories/kafka%E5%AD%A6%E4%B9%A0/</link>
         <description>Recent content in Kafka学习 on SSWhite Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://aililia.top/categories/kafka%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/kafka%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>认识Kafka</title>
-        <link>https://aililia.top/p/%E8%AE%A4%E8%AF%86kafka/</link>
+        <link>http://localhost:1313/p/%E8%AE%A4%E8%AF%86kafka/</link>
         <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://aililia.top/p/%E8%AE%A4%E8%AF%86kafka/</guid>
-        <description>&lt;img src="https://aililia.top/pandora.png" alt="Featured image of post 认识Kafka" /&gt;&lt;h4 id=&#34;pandora的功能介绍&#34;&gt;Pandora的功能介绍&lt;/h4&gt;
+        <guid>http://localhost:1313/p/%E8%AE%A4%E8%AF%86kafka/</guid>
+        <description>&lt;img src="http://localhost:1313/pandora.png" alt="Featured image of post 认识Kafka" /&gt;&lt;h4 id=&#34;pandora的功能介绍&#34;&gt;Pandora的功能介绍&lt;/h4&gt;
 &lt;p&gt;Pandora是一个开源的ChatGPT镜像项目，是以Access Token的方式，通过FakeGPT（国内的镜像网站中转）登陆ChatGPT。
 通过镜像网站中转的可以实现无需VPN访问ChatGPT，并且可以很好的应对人机验证、IP地址审查、访问速度拉胯等问题。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -66,7 +66,7 @@
     &gt;https://chat.openai.com/api/auth/session&lt;/a&gt; （需要科学上网，并且拥有ChatGPT账号）&lt;/p&gt;
 &lt;h4 id=&#34;登陆使用&#34;&gt;登陆使用&lt;/h4&gt;
 &lt;p&gt;点击&lt;code&gt;Continue with Access Token&lt;/code&gt; 按钮，然后输入Access token后即可访问web页面。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://aililia.top/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89.png&#34;
 	
 	
 	
@@ -77,7 +77,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;镜像网站中的体验与官网几乎一模一样，甚至可以使用ChatGPT的插件功能进行提问。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://aililia.top/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89-1.png&#34;
 	
 	
 	
