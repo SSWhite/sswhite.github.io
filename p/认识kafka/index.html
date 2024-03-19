@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='测试'>
+<title>认识Kafka</title>
+
+<link rel='canonical' href='https://aililia.top/p/%E8%AE%A4%E8%AF%86kafka/'>
+
+<link rel="stylesheet" href="/scss/style.min.e104b610df19826576c8f54e6f06ab9fe819026e6a89052c95ddaab6daa817aa.css"><meta property='og:title' content='认识Kafka'>
+<meta property='og:description' content='测试'>
+<meta property='og:url' content='https://aililia.top/p/%E8%AE%A4%E8%AF%86kafka/'>
+<meta property='og:site_name' content='SSWhite Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-03-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-03-10T00:00:00&#43;00:00'/><meta property='og:image' content='https://aililia.top/pandora.png' />
+<meta name="twitter:title" content="认识Kafka">
+<meta name="twitter:description" content="测试"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://aililia.top/pandora.png' />
+    <link rel="shortcut icon" href="blog.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SSWhite Blog</a></h1>
+            <h2 class="site-description">不积硅步，无以至千里</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/sswhite'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://aililia.top/" selected>中文</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    
+                    
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#pandora的功能介绍">Pandora的功能介绍</a></li>
+            <li><a href="#通过docker部署pandora">通过docker部署Pandora</a></li>
+            <li><a href="#获取accession-token">获取Accession token</a></li>
+            <li><a href="#登陆使用">登陆使用</a></li>
+            <li><a href="#结语">结语</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E8%AE%A4%E8%AF%86kafka/">
+                
+                    <img src="/pandora.png" loading="lazy" alt="Featured image of post 认识Kafka" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/kafka%E5%AD%A6%E4%B9%A0/" >
+                Kafka学习
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E8%AE%A4%E8%AF%86kafka/">认识Kafka</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            测试
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                
+                <time class="article-time--published">Mar 10, 2024</time>
+	        <time class="article-words">
+                    60字
+    		</time>
+</div>
+
+        
+
+        
+            <div>
+                
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h4 id="pandora的功能介绍">Pandora的功能介绍</h4>
+<p>Pandora是一个开源的ChatGPT镜像项目，是以Access Token的方式，通过FakeGPT（国内的镜像网站中转）登陆ChatGPT。
+通过镜像网站中转的可以实现无需VPN访问ChatGPT，并且可以很好的应对人机验证、IP地址审查、访问速度拉胯等问题。</p>
+<blockquote>
+<p>gitlab地址： <a class="link" href="https://github.com/pengzhile/pandora"  target="_blank" rel="noopener"
+    >https://github.com/pengzhile/pandora</a></p>
+</blockquote>
+<h4 id="通过docker部署pandora">通过docker部署Pandora</h4>
+<p>安装docker（不同系统安装方式不同，请根据实际情况进行安装）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yay -S docker
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动docker daemon, 并设置docker为开机启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl start docker
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> docker
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>拉取pandora镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull pengzhile/pandora 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行web版服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -e <span class="nv">PANDORA_CLOUD</span><span class="o">=</span>cloud -e <span class="nv">PANDORA_SERVER</span><span class="o">=</span>0.0.0.0:8899 -p 8899:8899 -d pengzhile/pandora
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这种方式会将所有访8899端口的请求转发的容器中，即可以通过IP地址访问镜像服务，也可以通过127.0.0.1：8899本地访问镜像服务。</p>
+</blockquote>
+<h4 id="获取accession-token">获取Accession token</h4>
+<p>访问网站 <a class="link" href="https://chat.openai.com/api/auth/session"  target="_blank" rel="noopener"
+    >https://chat.openai.com/api/auth/session</a> （需要科学上网，并且拥有ChatGPT账号）</p>
+<h4 id="登陆使用">登陆使用</h4>
+<p>点击<code>Continue with Access Token</code> 按钮，然后输入Access token后即可访问web页面。</p>
+<p><img src="/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="通过token访问"
+	
+	
+></p>
+<p>镜像网站中的体验与官网几乎一模一样，甚至可以使用ChatGPT的插件功能进行提问。</p>
+<p><img src="/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89-1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="镜像使用"
+	
+	
+></p>
+<h4 id="结语">结语</h4>
+<p>通过Pandora的方式，访问速度大大提高，并且不再受到VPN的限制，这真是一大福音。
+若有需要，甚至可以在公网上的服务器部署，这样便可以在多种客户端访问ChatGPT。然而，我现在还未有此打算，有兴趣的朋友，或许可以自行探索。</p>
+<blockquote>
+<p>若有兴趣深入了解，可以<a class="link" href="https://blog.csdn.net/weixin_41104307/article/details/131109718"  target="_blank" rel="noopener"
+    >点这里</a>看看。</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <link rel="stylesheet" href="/scss/partials/comments/disqusjs.min.css">
+
+<div class="disqus-container">
+    <div id="disqus_thread"></div>
+    <script type="application/javascript">
+        let disqusjs;
+        function loadDisqusJS() {
+            disqusjs = new DisqusJS({
+                shortname: "sswhite",
+                siteName: "SSWhite Blog",
+                apikey: "c9G7odN8AiYsIhxQmYTtOZvKliAo10Wjw408tmUjIFg7WAggBrQqRJ1BWMbjCUuS",
+                api: "https://disqus.com/api/oauth/2.0/authorize/",
+                admin: "SSWhite",
+                
+            });
+        }
+
+        function lazyLoadDisqusJS() {
+            if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+                document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+                return;
+            }
+
+            let d = document.createElement('script');
+            d.src = 'https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js';
+            d.async = false;
+            document.body.appendChild(d);
+            d.onload = () => {
+                loadDisqusJS();
+                window.addEventListener('onColorSchemeChange', (e) => {
+                    if (disqusjs) {
+                        loadDisqusJS();
+                    }
+                })
+            }
+        }
+
+        let runningOnBrowser = typeof window !== "undefined";
+        let isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        let supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+        if (!isBot && supportsIntersectionObserver) {
+            let disqus_observer = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting) {
+                    lazyLoadDisqusJS();
+                    disqus_observer.disconnect();
+                }
+            });
+            disqus_observer.observe(document.getElementById('disqus_thread'));
+        } else {
+            lazyLoadDisqusJS();
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 SSWhite Blog
+	已运行 <i class="fas fa-bell"></i> <a id="days">0</a> 天
+
+        
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+        
+	
+	<br>
+	⌨ 0.77k 字 🧠 6 篇文章
+
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+    <script>
+    var s1 = '2022-10-01';
+    s1 = new Date(s1.replace(/-/g, "/"));
+    s2 = new Date();
+    var days = s2.getTime() - s1.getTime();
+    var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
+    document.getElementById('days').innerHTML = number_of_days;
+</script>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

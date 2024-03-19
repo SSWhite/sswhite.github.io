@@ -6,13 +6,103 @@
         <description>Recent content on SSWhite Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 15 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://aililia.top/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://aililia.top/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>认识Kafka</title>
+        <link>https://aililia.top/p/%E8%AE%A4%E8%AF%86kafka/</link>
+        <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://aililia.top/p/%E8%AE%A4%E8%AF%86kafka/</guid>
+        <description>&lt;img src="https://aililia.top/pandora.png" alt="Featured image of post 认识Kafka" /&gt;&lt;h4 id=&#34;pandora的功能介绍&#34;&gt;Pandora的功能介绍&lt;/h4&gt;
+&lt;p&gt;Pandora是一个开源的ChatGPT镜像项目，是以Access Token的方式，通过FakeGPT（国内的镜像网站中转）登陆ChatGPT。
+通过镜像网站中转的可以实现无需VPN访问ChatGPT，并且可以很好的应对人机验证、IP地址审查、访问速度拉胯等问题。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gitlab地址： &lt;a class=&#34;link&#34; href=&#34;https://github.com/pengzhile/pandora&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/pengzhile/pandora&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;通过docker部署pandora&#34;&gt;通过docker部署Pandora&lt;/h4&gt;
+&lt;p&gt;安装docker（不同系统安装方式不同，请根据实际情况进行安装）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;启动docker daemon, 并设置docker为开机启动&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start docker
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;拉取pandora镜像&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker pull pengzhile/pandora 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;运行web版服务&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -e &lt;span class=&#34;nv&#34;&gt;PANDORA_CLOUD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;cloud -e &lt;span class=&#34;nv&#34;&gt;PANDORA_SERVER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;0.0.0.0:8899 -p 8899:8899 -d pengzhile/pandora
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;这种方式会将所有访8899端口的请求转发的容器中，即可以通过IP地址访问镜像服务，也可以通过127.0.0.1：8899本地访问镜像服务。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;获取accession-token&#34;&gt;获取Accession token&lt;/h4&gt;
+&lt;p&gt;访问网站 &lt;a class=&#34;link&#34; href=&#34;https://chat.openai.com/api/auth/session&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://chat.openai.com/api/auth/session&lt;/a&gt; （需要科学上网，并且拥有ChatGPT账号）&lt;/p&gt;
+&lt;h4 id=&#34;登陆使用&#34;&gt;登陆使用&lt;/h4&gt;
+&lt;p&gt;点击&lt;code&gt;Continue with Access Token&lt;/code&gt; 按钮，然后输入Access token后即可访问web页面。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aililia.top/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;通过token访问&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;镜像网站中的体验与官网几乎一模一样，甚至可以使用ChatGPT的插件功能进行提问。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aililia.top/ChatGPT%e6%9c%ac%e5%9c%b0%e9%83%a8%e7%bd%b2%ef%bc%88Pandora%ef%bc%89-1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;镜像使用&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;结语&#34;&gt;结语&lt;/h4&gt;
+&lt;p&gt;通过Pandora的方式，访问速度大大提高，并且不再受到VPN的限制，这真是一大福音。
+若有需要，甚至可以在公网上的服务器部署，这样便可以在多种客户端访问ChatGPT。然而，我现在还未有此打算，有兴趣的朋友，或许可以自行探索。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若有兴趣深入了解，可以&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/weixin_41104307/article/details/131109718&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;点这里&lt;/a&gt;看看。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>ChatGPT Custom Instruction</title>
         <link>https://aililia.top/p/chatgpt-custom-instruction/</link>
         <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
         
         <guid>https://aililia.top/p/chatgpt-custom-instruction/</guid>
-        <description>&lt;img src="https://aililia.top/p/chatgpt-custom-instruction/instruction.jpeg" alt="Featured image of post ChatGPT Custom Instruction" /&gt;&lt;h3 id=&#34;介绍&#34;&gt;介绍&lt;/h3&gt;
+        <description>&lt;img src="https://aililia.top/instruction.jpeg" alt="Featured image of post ChatGPT Custom Instruction" /&gt;&lt;h3 id=&#34;介绍&#34;&gt;介绍&lt;/h3&gt;
 &lt;p&gt;自定义指令（custom instructions），这个功能的作用是在与ChatGPT交互时帮助用户预先设置一些背景信息，方便ChatGPT更好地理解用户的意图，减少用户每次对话前重复介绍背景信息，另外还可以对ChatGPT的输出内容做预设要求。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注意： 目前的情况，制定好custom instructions 之后，开启新的对话，然后再修改Custom instructions, 之前开启的对话仍会保留最开始的Custom instruction设置。因此可以通过 设置instruction-&amp;gt; 开启新的对话 -&amp;gt; 修改instruction -&amp;gt;开启新的对话，这种方式保留不同的指令设置。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;开启方式&#34;&gt;开启方式&lt;/h3&gt;
@@ -231,7 +321,7 @@
         <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
         
         <guid>https://aililia.top/p/chatgpt%E6%8F%92%E4%BB%B6/</guid>
-        <description>&lt;img src="https://aililia.top/p/chatgpt%E6%8F%92%E4%BB%B6/ChatGPT%E6%8F%92%E4%BB%B6.jpg" alt="Featured image of post ChatGPT插件" /&gt;&lt;p&gt;ChatGPT插件是OpenAI推出的一项新功能允许用户通过特定的插件与ChatGPT进行交互，从而实现更多的功能和应用。这些插件可以帮助ChatGPT访问外部信息、执行特定任务或与其他服务进行集成。例如，WebPilot插件允许ChatGPT浏览网页并从中提取信息。通过这些插件，ChatGPT的应用范围得到了极大的扩展，使其不仅仅是一个聊天机器人，更是一个功能强大的工具，以下是几款强大的插件。&lt;/p&gt;
+        <description>&lt;img src="https://aililia.top/ChatGPT%E6%8F%92%E4%BB%B6.jpg" alt="Featured image of post ChatGPT插件" /&gt;&lt;p&gt;ChatGPT插件是OpenAI推出的一项新功能允许用户通过特定的插件与ChatGPT进行交互，从而实现更多的功能和应用。这些插件可以帮助ChatGPT访问外部信息、执行特定任务或与其他服务进行集成。例如，WebPilot插件允许ChatGPT浏览网页并从中提取信息。通过这些插件，ChatGPT的应用范围得到了极大的扩展，使其不仅仅是一个聊天机器人，更是一个功能强大的工具，以下是几款强大的插件。&lt;/p&gt;
 &lt;h4 id=&#34;webpilot&#34;&gt;WebPilot&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;
 WebPilot是一款强大的ChatGPT插件，它允许用户提供一个或多个URL，并可以选择性地添加交互请求、提取特定信息或指定URL内容的处理方式。WebPilot的核心功能是visitWebPage，这个功能为ChatGPT用户提供了一个强大的工具，可以让他们与网页进行交互，提取特定信息或处理URL的内容。&lt;/p&gt;
@@ -308,7 +398,7 @@ ChatGPT 的 VoiceOver 插件是一个文本到语音合成工具。它可以将�
         <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
         
         <guid>https://aililia.top/p/%E4%BC%98%E5%8C%96chatgpt-prompt/</guid>
-        <description>&lt;img src="https://aililia.top/p/%E4%BC%98%E5%8C%96chatgpt-prompt/ChatGPT_Prompt.jpg" alt="Featured image of post 优化ChatGPT Prompt" /&gt;&lt;h4 id=&#34;chatgpt使用场景&#34;&gt;ChatGPT使用场景&lt;/h4&gt;
+        <description>&lt;img src="https://aililia.top/ChatGPT_Prompt.jpg" alt="Featured image of post 优化ChatGPT Prompt" /&gt;&lt;h4 id=&#34;chatgpt使用场景&#34;&gt;ChatGPT使用场景&lt;/h4&gt;
 &lt;p&gt;ChatGPT训练语料非常庞大，使用场景也非常广泛，在日常使用过程中我们可以使用ChatGPT处理各种工作事项，包括但不限于以下内容：
 &lt;strong&gt;搜索引擎&lt;/strong&gt;：结合资料给出答案，但需要注意的是ChatGPT有时会胡言乱语。
 &lt;strong&gt;内容生成&lt;/strong&gt;：包括论文、演讲稿、人工客服、员工评价、小红书推广稿等。
@@ -411,7 +501,7 @@ ChatGPT 的 VoiceOver 插件是一个文本到语音合成工具。它可以将�
         <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
         
         <guid>https://aililia.top/p/chatgpt%E6%8F%90%E9%97%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/</guid>
-        <description>&lt;img src="https://aililia.top/p/chatgpt%E6%8F%90%E9%97%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95/ChatGPT%E6%8F%90%E9%97%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95.jpg" alt="Featured image of post ChatGPT提问的基本方法" /&gt;&lt;h4 id=&#34;提问的四个基本要素&#34;&gt;提问的四个基本要素&lt;/h4&gt;
+        <description>&lt;img src="https://aililia.top/ChatGPT%E6%8F%90%E9%97%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95.jpg" alt="Featured image of post ChatGPT提问的基本方法" /&gt;&lt;h4 id=&#34;提问的四个基本要素&#34;&gt;提问的四个基本要素&lt;/h4&gt;
 &lt;p&gt;提示的特定格式，一般包括四基本元素：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;角色（role）：模型所需要扮演的角色，例如：你是一个从业20年的金融学专家、我希望你充当英语翻译，拼写校正和改进者。&lt;/li&gt;
@@ -517,7 +607,7 @@ ChatGPT 由 OpenAI 在2022年11月30号发布，发布5天后全球用户数就�
         <pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate>
         
         <guid>https://aililia.top/p/chatgpt%E9%83%A8%E7%BD%B2/</guid>
-        <description>&lt;img src="https://aililia.top/p/chatgpt%E9%83%A8%E7%BD%B2/pandora.png" alt="Featured image of post ChatGPT本地部署" /&gt;&lt;h4 id=&#34;pandora的功能介绍&#34;&gt;Pandora的功能介绍&lt;/h4&gt;
+        <description>&lt;img src="https://aililia.top/pandora.png" alt="Featured image of post ChatGPT本地部署" /&gt;&lt;h4 id=&#34;pandora的功能介绍&#34;&gt;Pandora的功能介绍&lt;/h4&gt;
 &lt;p&gt;Pandora是一个开源的ChatGPT镜像项目，是以Access Token的方式，通过FakeGPT（国内的镜像网站中转）登陆ChatGPT。
 通过镜像网站中转的可以实现无需VPN访问ChatGPT，并且可以很好的应对人机验证、IP地址审查、访问速度拉胯等问题。&lt;/p&gt;
 &lt;blockquote&gt;
